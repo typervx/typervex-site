@@ -1,59 +1,132 @@
-'use client'
+"use client"
 
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import Link from "next/link"
+import { useState, useEffect } from "react"
+import { Github, Download, Menu, X } from "lucide-react"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
     }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const navItems = ["Features", "About", "Gallery", "Install", "Usage"]
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass' : 'bg-background/50 backdrop-blur-sm'
+        isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border/50" : "bg-transparent"
       }`}
     >
+      {/* Terminal-style top bar */}
+      <div className="bg-card/80 border-b border-border/30 py-1 px-4 font-mono text-xs text-muted-foreground hidden md:block">
+        <span className="text-primary">root@typervx</span>
+        <span className="text-muted-foreground">:</span>
+        <span className="text-secondary">~</span>
+        <span className="text-muted-foreground">$</span>
+        <span className="ml-2">./typervx --info</span>
+      </div>
+
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-md bg-primary/20 border border-primary/40 flex items-center justify-center font-mono font-bold text-primary group-hover:bg-primary/30 transition-colors">
               T
             </div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              TyperVX
-            </h1>
-          </div>
+            <span className="text-xl font-bold font-mono tracking-tight">
+              <span className="text-primary">TYPER</span>
+              <span className="text-foreground">VX</span>
+            </span>
+          </Link>
 
-          <ul className="hidden md:flex gap-8">
-            {['Features', 'Install', 'Usage', 'Contact'].map((item) => (
+          {/* Desktop Nav */}
+          <ul className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase()}`}
-                  className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200"
+                  className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors duration-200"
                 >
-                  {item}
+                  [{item}]
                 </a>
               </li>
             ))}
           </ul>
 
-          <Link
-            href="https://github.com/kevinmartz/TyperVX"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass px-4 py-2 rounded-lg text-sm font-medium hover:border-primary/60 transition-all duration-200 hover:shadow-[0_0_20px_rgba(178,120,255,0.2)]"
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="https://github.com/kevinmartz/TyperVX/releases/latest"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md font-mono text-sm font-medium hover:bg-primary/90 transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              Download
+            </Link>
+            <Link
+              href="https://github.com/kevinmartz/TyperVX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 border border-border hover:border-primary/50 px-4 py-2 rounded-md font-mono text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Github className="w-4 h-4" />
+              GitHub
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 text-muted-foreground hover:text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            GitHub
-          </Link>
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t border-border/30 pt-4">
+            <ul className="space-y-3">
+              {navItems.map((item) => (
+                <li key={item}>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="block text-sm font-mono text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    $ cd /{item.toLowerCase()}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="flex gap-3 mt-4 pt-4 border-t border-border/30">
+              <Link
+                href="https://github.com/kevinmartz/TyperVX/releases/latest"
+                target="_blank"
+                className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md font-mono text-sm"
+              >
+                <Download className="w-4 h-4" />
+                Download
+              </Link>
+              <Link
+                href="https://github.com/kevinmartz/TyperVX"
+                target="_blank"
+                className="flex items-center justify-center gap-2 border border-border px-4 py-2 rounded-md font-mono text-sm"
+              >
+                <Github className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   )

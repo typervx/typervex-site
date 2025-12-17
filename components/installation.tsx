@@ -1,87 +1,96 @@
-'use client'
+import { Star, Terminal, Download, ExternalLink } from "lucide-react"
+import Link from "next/link"
 
 export default function Installation() {
   return (
-    <section id="install" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Get <span className="text-primary">Started</span>
+    <section id="install" className="py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="section-header font-mono mb-2">
+            <span className="text-secondary">**</span>
+            <span className="text-foreground">INSTALLATION</span>
           </h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Installation is quick and straightforward. Choose your preferred method.
-          </p>
+          <p className="text-muted-foreground font-mono text-sm">// Get started in minutes</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Method 1 */}
-          <div className="glass-accent group p-8 rounded-2xl hover:border-primary/60 transition-all duration-300">
-            <h3 className="text-2xl font-bold mb-4 text-primary flex items-center gap-2">
-              <span>⭐</span> Recommended
-            </h3>
-            <p className="text-foreground/70 mb-6">Download the latest release and run the installer.</p>
-            
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Recommended Method */}
+          <div className="terminal-card p-6 border-primary/30">
+            <div className="flex items-center gap-2 mb-4">
+              <Star className="w-5 h-5 text-primary" />
+              <h3 className="font-mono font-bold text-primary">RECOMMENDED</h3>
+            </div>
+            <p className="text-muted-foreground text-sm mb-6">Download the latest release and run the installer.</p>
+
             <div className="space-y-3 mb-6">
-              <p className="text-sm font-mono bg-black/30 p-3 rounded-lg text-secondary">
-                1. Download from GitHub Releases
-              </p>
-              <p className="text-sm font-mono bg-black/30 p-3 rounded-lg text-secondary">
-                2. Extract the archive
-              </p>
-              <p className="text-sm font-mono bg-black/30 p-3 rounded-lg text-secondary">
-                3. Run: install_win.cmd (Windows)
-              </p>
-              <p className="text-sm font-mono bg-black/30 p-3 rounded-lg text-secondary">
-                Or: chmod +x install_mac.sh && ./install_mac.sh (macOS)
-              </p>
+              <div className="code-block">
+                <span className="text-muted-foreground"># 1. Download from GitHub Releases</span>
+              </div>
+              <div className="code-block">
+                <span className="text-muted-foreground"># 2. Extract the archive (YES EXTRACT IT!)</span>
+              </div>
+              <div className="code-block">
+                <span className="text-primary">$</span> install_win.cmd
+                <span className="text-muted-foreground ml-4"># Windows</span>
+              </div>
+              <div className="code-block">
+                <span className="text-primary">$</span> chmod +x install_mac.sh && ./install_mac.sh
+                <span className="text-muted-foreground ml-4"># macOS</span>
+              </div>
             </div>
 
-            <a
+            <Link
               href="https://github.com/kevinmartz/TyperVX/releases/latest"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block glass px-6 py-2 rounded-lg font-medium hover:border-primary/60 transition-all"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2 rounded-md font-mono text-sm font-medium hover:bg-primary/90 transition-colors"
             >
-              Download Now →
-            </a>
+              <Download className="w-4 h-4" />
+              Download Now
+            </Link>
           </div>
 
-          {/* Method 2 */}
-          <div className="glass group p-8 rounded-2xl hover:border-primary/60 transition-all duration-300">
-            <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-              <span>💻</span> Build from Source
-            </h3>
-            <p className="text-foreground/70 mb-6">Advanced: Build directly from the repository.</p>
-            
+          {/* Build from Source */}
+          <div className="terminal-card p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <Terminal className="w-5 h-5 text-secondary" />
+              <h3 className="font-mono font-bold text-foreground">BUILD FROM SOURCE</h3>
+            </div>
+            <p className="text-muted-foreground text-sm mb-6">Advanced: Build directly from the repository.</p>
+
             <div className="space-y-3 mb-6">
-              <p className="text-sm font-mono bg-black/30 p-3 rounded-lg text-secondary">
-                git clone https://github.com/kevinmartz/TyperVX.git
-              </p>
-              <p className="text-sm font-mono bg-black/30 p-3 rounded-lg text-secondary">
-                cd TyperVX && npm install
-              </p>
-              <p className="text-sm font-mono bg-black/30 p-3 rounded-lg text-secondary">
-                npm run build
-              </p>
-              <p className="text-sm font-mono bg-black/30 p-3 rounded-lg text-secondary">
-                Then run the installer
-              </p>
+              <div className="code-block">
+                <span className="text-primary">$</span> git clone https://github.com/kevinmartz/TyperVX.git
+              </div>
+              <div className="code-block">
+                <span className="text-primary">$</span> cd TyperVX
+              </div>
+              <div className="code-block">
+                <span className="text-primary">$</span> npm install
+              </div>
+              <div className="code-block">
+                <span className="text-primary">$</span> npm run build
+              </div>
             </div>
 
-            <a
+            <Link
               href="https://github.com/kevinmartz/TyperVX"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block glass px-6 py-2 rounded-lg font-medium hover:border-primary/60 transition-all"
+              className="inline-flex items-center gap-2 border border-border hover:border-primary/50 px-5 py-2 rounded-md font-mono text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              View Repository →
-            </a>
+              <ExternalLink className="w-4 h-4" />
+              View Repository
+            </Link>
           </div>
         </div>
 
-        <div className="glass mt-8 p-6 rounded-xl border-l-2 border-primary/60">
-          <p className="text-sm text-foreground/70">
-            <span className="font-semibold text-foreground">Requirements:</span> Windows 10+ or macOS 12.8+, Adobe Photoshop CC 2015 or newer. Some portable Photoshop builds may have compatibility issues.
+        {/* Requirements Note */}
+        <div className="terminal-card mt-8 p-4 border-l-2 border-primary/50">
+          <p className="text-sm text-muted-foreground font-mono">
+            <span className="text-primary">Note:</span> Some portable or lightweight Photoshop builds may have
+            compatibility issues. Requires Node.js for building from source.
           </p>
         </div>
       </div>

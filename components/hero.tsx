@@ -1,68 +1,63 @@
-'use client'
+"use client"
 
-import Link from 'next/link'
+import Link from "next/link"
+import { Download, ArrowRight, Github } from "lucide-react"
 
 export default function Hero() {
   return (
-    <section className="relative pt-20 pb-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
-            <div className="space-y-4">
-              <h2 className="text-5xl md:text-6xl font-bold text-balance leading-tight">
-                Professional{' '}
-                <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                  Typography Tool
-                </span>
-              </h2>
-              <p className="text-lg text-foreground/70 leading-relaxed max-w-lg">
-                TyperVX is an enhanced fork of TypeR with advanced keyboard shortcuts, intelligent folder management, and multiple theme support for Adobe Photoshop.
-              </p>
-            </div>
+    <section className="relative pt-12 pb-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto text-center">
+        {/* ASCII Art Title - Terminal Style */}
+        <div className="mb-8 overflow-x-auto">
+          <pre className="font-mono text-[8px] sm:text-xs md:text-sm text-primary leading-tight inline-block text-left">
+            {`████████╗██╗   ██╗██████╗ ███████╗██████╗ ██╗   ██╗██╗  ██╗
+╚══██╔══╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗██║   ██║╚██╗██╔╝
+   ██║    ╚████╔╝ ██████╔╝█████╗  ██████╔╝██║   ██║ ╚███╔╝ 
+   ██║     ╚██╔╝  ██╔═══╝ ██╔══╝  ██╔══██╗╚██╗ ██╔╝ ██╔██╗ 
+   ██║      ██║   ██║     ███████╗██║  ██║ ╚████╔╝ ██╔╝ ██╗
+   ╚═╝      ╚═╝   ╚═╝     ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝`}
+          </pre>
+        </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="https://github.com/kevinmartz/TyperVX/releases/latest"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-accent px-8 py-3 rounded-lg font-semibold inline-flex items-center justify-center hover:border-primary/80 transition-all duration-200 hover:glow-accent group"
-              >
-                <span>Download Latest</span>
-                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-              </Link>
-              <Link
-                href="#features"
-                className="glass px-8 py-3 rounded-lg font-semibold inline-flex items-center justify-center hover:border-primary/60 transition-all duration-200"
-              >
-                Learn More
-              </Link>
-            </div>
+        {/* Subtitle */}
+        <h1 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
+          Advanced Typography Tool for <span className="text-secondary">Adobe Photoshop</span>
+        </h1>
 
-            <div className="flex gap-6 pt-4">
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-primary">5+</p>
-                <p className="text-sm text-foreground/60">Built-in Themes</p>
-              </div>
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-accent">9</p>
-                <p className="text-sm text-foreground/60">Languages</p>
-              </div>
-              <div className="space-y-1">
-                <p className="text-2xl font-bold text-secondary">CC 2015+</p>
-                <p className="text-sm text-foreground/60">Photoshop Support</p>
-              </div>
-            </div>
-          </div>
+        <p className="text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+          Take control of your typography workflow. Enhanced keyboard shortcuts, intelligent folder management, and
+          multiple themes.
+          <br />
+          <span className="text-primary font-mono text-sm">Built for designers who demand efficiency.</span>
+        </p>
 
-          <div className="relative h-96 md:h-[500px] animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
-            <div className="glass-dark absolute inset-0 rounded-2xl overflow-hidden border-2 border-primary/30 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-6xl mb-4">✨</div>
-                <p className="text-foreground/60">Visual Preview</p>
-              </div>
-            </div>
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 blur-2xl" />
-          </div>
+        {/* CTA Buttons */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <Link
+            href="https://github.com/kevinmartz/TyperVX/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-mono font-semibold hover:bg-primary/90 transition-all hover:scale-105"
+          >
+            <Download className="w-5 h-5" />
+            DOWNLOAD
+          </Link>
+          <Link
+            href="#features"
+            className="flex items-center gap-2 border border-border hover:border-primary/50 px-6 py-3 rounded-md font-mono font-semibold text-muted-foreground hover:text-foreground transition-all"
+          >
+            FEATURES
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <Link
+            href="https://github.com/kevinmartz/TyperVX"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 border border-border hover:border-primary/50 px-6 py-3 rounded-md font-mono font-semibold text-muted-foreground hover:text-foreground transition-all"
+          >
+            <Github className="w-5 h-5" />
+            GITHUB
+          </Link>
         </div>
       </div>
     </section>

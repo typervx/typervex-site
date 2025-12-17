@@ -1,66 +1,80 @@
-'use client'
+import { Keyboard, FolderOpen, Palette, Trash2, Layout, Zap } from "lucide-react"
 
 const features = [
   {
-    title: 'Individual Style Shortcuts',
-    description: 'Assign keyboard shortcuts directly to any style for instant application. Support for custom labels and intelligent conflict detection.',
-    icon: '⌨️',
+    title: "Style Shortcuts",
+    description: "Assign keyboard shortcuts to any style. Instant application with conflict detection.",
+    icon: Keyboard,
+    bullets: ["Custom shortcuts per style", "Instant application", "Conflict resolution"],
   },
   {
-    title: 'Advanced Folder System',
-    description: 'Organize styles with folder-based shortcut management. Toggle shortcuts per folder and copy between folders with automatic matching.',
-    icon: '📁',
+    title: "Folder System",
+    description: "Organize with folder-based shortcut management. Toggle and copy between folders.",
+    icon: FolderOpen,
+    bullets: ["Toggle shortcuts per folder", "Copy between folders", "Visual folder states"],
   },
   {
-    title: 'Multiple Themes',
-    description: 'Choose from Default, Purple Ocean, Midnight, Neon Pink, and Pinky Pink themes. Consistent UI with smooth theme transitions.',
-    icon: '🎨',
+    title: "Performance",
+    description: "40ms polling for responsive detection. Adobe CEP optimized.",
+    icon: Zap,
+    bullets: ["Lightning fast startup", "Optimized processing", "Smart caching"],
   },
   {
-    title: 'Complete Folder Deletion',
-    description: 'Safely delete folders with options to move styles to unsorted or permanently remove. Visual warnings prevent accidental data loss.',
-    icon: '🗑️',
+    title: "Theme System",
+    description: "Multiple built-in themes with smooth transitions and consistent UI.",
+    icon: Palette,
+    bullets: ["Purple Ocean default", "Midnight theme", "Neon & Pinky Pink"],
   },
   {
-    title: 'Enhanced UI Components',
-    description: 'Beautiful modal layouts, improved button focus states, enhanced dropdowns, and visual shortcut indicators throughout the interface.',
-    icon: '🖼️',
+    title: "Folder Deletion",
+    description: "Complete folder deletion with safe options and visual warnings.",
+    icon: Trash2,
+    bullets: ["Move to unsorted", "Permanent delete", "Visual warnings"],
   },
   {
-    title: 'Performance Optimized',
-    description: '40ms polling interval for responsive detection. Adobe CEP optimized and tuned for seamless Photoshop integration.',
-    icon: '⚡',
+    title: "Enhanced UI",
+    description: "Beautiful modal layouts, improved focus states, and visual indicators.",
+    icon: Layout,
+    bullets: ["Modal layouts", "Clean focus states", "Shortcut badges"],
   },
 ]
 
 export default function Features() {
   return (
-    <section id="features" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Powerful <span className="text-primary">Features</span>
+    <section id="features" className="py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="section-header font-mono mb-2">
+            <span className="text-secondary">**</span>
+            <span className="text-foreground">FEATURES</span>
           </h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Discover the comprehensive toolset that makes TyperVX the professional choice for typography workflows.
-          </p>
+          <p className="text-muted-foreground font-mono text-sm">// What can TyperVX do?</p>
         </div>
 
+        {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, idx) => (
-            <div
-              key={idx}
-              className="glass group hover:border-primary/60 transition-all duration-300 p-6 rounded-xl hover:shadow-[0_0_30px_rgba(178,120,255,0.2)] hover:-translate-y-1"
-            >
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                {feature.icon}
+            <div key={idx} className="feature-card group">
+              <div className="flex items-start gap-4">
+                <div className="p-2 rounded-md bg-primary/10 border border-primary/30 text-primary group-hover:bg-primary/20 transition-colors">
+                  <feature.icon className="w-5 h-5" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-mono font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-3 leading-relaxed">{feature.description}</p>
+                  <ul className="space-y-1">
+                    {feature.bullets.map((bullet, bulletIdx) => (
+                      <li key={bulletIdx} className="text-xs font-mono text-muted-foreground flex items-center gap-2">
+                        <span className="text-primary">*</span>
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                {feature.title}
-              </h3>
-              <p className="text-foreground/60 leading-relaxed">
-                {feature.description}
-              </p>
             </div>
           ))}
         </div>

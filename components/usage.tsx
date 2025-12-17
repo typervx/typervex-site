@@ -1,78 +1,70 @@
-'use client'
-
 export default function Usage() {
+  const steps = [
+    { step: "1", title: "Open Adobe Photoshop", desc: "Launch your Photoshop application" },
+    { step: "2", title: "Navigate to Extensions", desc: "Window → Extensions → TyperVX" },
+    { step: "3", title: "Start Using", desc: "TyperVX is ready to enhance your workflow" },
+  ]
+
   return (
-    <section id="usage" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold">
-            How to <span className="text-primary">Use</span>
+    <section id="usage" className="py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="mb-12">
+          <h2 className="section-header font-mono mb-2">
+            <span className="text-secondary">**</span>
+            <span className="text-foreground">USAGE</span>
           </h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            TyperVX is designed to be intuitive and easy to use from day one.
-          </p>
+          <p className="text-muted-foreground font-mono text-sm">// Easy 3 steps to start</p>
         </div>
 
-        <div className="space-y-6">
-          {/* Quick Start */}
-          <div className="glass-accent p-8 rounded-xl">
-            <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <span className="text-2xl">🚀</span> Quick Start
-            </h3>
-            <ol className="space-y-4">
-              <li className="flex gap-4">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/30 text-primary font-bold flex-shrink-0">1</div>
-                <div>
-                  <p className="font-semibold">Open Adobe Photoshop</p>
-                  <p className="text-foreground/60 text-sm mt-1">Launch your Photoshop application</p>
+        {/* Quick Start Steps */}
+        <div className="terminal-card p-6 mb-8">
+          <h3 className="font-mono font-bold text-foreground mb-6 flex items-center gap-2">
+            <span className="text-primary">$</span> ./quickstart
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {steps.map((item) => (
+              <div key={item.step} className="flex gap-4">
+                <div className="w-10 h-10 rounded-md bg-primary/20 border border-primary/40 flex items-center justify-center font-mono font-bold text-primary flex-shrink-0">
+                  {item.step}
                 </div>
-              </li>
-              <li className="flex gap-4">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/30 text-primary font-bold flex-shrink-0">2</div>
                 <div>
-                  <p className="font-semibold">Navigate to Extensions</p>
-                  <p className="text-foreground/60 text-sm mt-1">Go to Window → Extensions → TyperVX</p>
+                  <p className="font-mono font-semibold text-foreground">{item.title}</p>
+                  <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
                 </div>
-              </li>
-              <li className="flex gap-4">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/30 text-primary font-bold flex-shrink-0">3</div>
-                <div>
-                  <p className="font-semibold">Start Using</p>
-                  <p className="text-foreground/60 text-sm mt-1">TyperVX is ready to enhance your typography workflow</p>
-                </div>
-              </li>
-            </ol>
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Key Features */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="glass p-6 rounded-xl">
-              <h4 className="text-lg font-bold mb-4 text-primary">Assign Keyboard Shortcuts</h4>
-              <p className="text-foreground/70 text-sm leading-relaxed">
-                Edit any style and find the Keyboard Shortcut section. Click the shortcut field and press your desired keys. Supports Ctrl+Number, brackets, punctuation, and symbol combinations with full conflict detection.
-              </p>
-            </div>
-
-            <div className="glass p-6 rounded-xl">
-              <h4 className="text-lg font-bold mb-4 text-accent">Manage Folders</h4>
-              <p className="text-foreground/70 text-sm leading-relaxed">
-                Organize styles into folders. Open folders apply styles automatically. Closed folders show colored borders and are inactive. Copy shortcuts between folders with automatic matching of style types.
-              </p>
-            </div>
-
-            <div className="glass p-6 rounded-xl">
-              <h4 className="text-lg font-bold mb-4 text-secondary">Switch Themes</h4>
-              <p className="text-foreground/70 text-sm leading-relaxed">
-                Access theme settings in the main interface. Choose from Default, Purple Ocean (default), Midnight, Neon Pink, and Pinky Pink. All themes feature smooth transitions and consistent UI design.
-              </p>
-            </div>
-
-            <div className="glass p-6 rounded-xl">
-              <h4 className="text-lg font-bold mb-4 text-primary">Copy Shortcuts</h4>
-              <p className="text-foreground/70 text-sm leading-relaxed">
-                Use the copy shortcuts feature to transfer shortcuts between folders. The system automatically matches compatible style types (OT→OT, ST→ST) with manual review for complete control.
-              </p>
-            </div>
+        {/* Feature Tips */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="terminal-card p-5">
+            <h4 className="font-mono font-bold text-primary mb-3">Assign Shortcuts</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Edit any style → Find Keyboard Shortcut section → Click field → Press desired keys → Save. Supports
+              Ctrl+Number, brackets, and symbol combinations.
+            </p>
+          </div>
+          <div className="terminal-card p-5">
+            <h4 className="font-mono font-bold text-secondary mb-3">Manage Folders</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Open folders apply styles automatically. Closed folders show colored borders indicating inactive state.
+              Copy shortcuts between folders with automatic matching.
+            </p>
+          </div>
+          <div className="terminal-card p-5">
+            <h4 className="font-mono font-bold text-accent mb-3">Switch Themes</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Access theme settings in the main interface. Choose from Default, Purple Ocean, Midnight, Neon Pink, and
+              Pinky Pink themes.
+            </p>
+          </div>
+          <div className="terminal-card p-5">
+            <h4 className="font-mono font-bold text-primary mb-3">AutoHotkey Tip</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Use key hold timing (50ms) in AHK scripts for reliable detection with Adobe CEP polling cycle.
+            </p>
           </div>
         </div>
       </div>
