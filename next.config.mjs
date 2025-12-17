@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
+  // Set basePath for GitHub Pages (subdirectory hosting)
+  basePath: process.env.NODE_ENV === 'production' ? '/typervex-site' : '',
   eslint: {
     ignoreDuringBuilds: true,
   },
