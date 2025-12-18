@@ -35,6 +35,11 @@ export const viewport: Viewport = {
   maximumScale: 1,
 }
 
+import Header from "@/components/header"
+import Footer from "@/components/footer"
+
+// ... imports
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,8 +47,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`font-sans antialiased`}>
-        {children}
+      <body className={`font-sans antialiased bg-background`}>
+        {/* Subtle grid background */}
+        <div className="fixed inset-0 bg-[linear-gradient(rgba(34,197,94,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
+
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   )

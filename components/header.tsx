@@ -20,9 +20,8 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border/50" : "bg-transparent"
-      }`}
+      className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border/50" : "bg-transparent"
+        }`}
     >
       {/* Terminal-style top bar */}
       <div className="bg-card/80 border-b border-border/30 py-1 px-4 font-mono text-xs text-muted-foreground hidden md:block">
@@ -37,12 +36,11 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-md bg-primary/20 border border-primary/40 flex items-center justify-center font-mono font-bold text-primary group-hover:bg-primary/30 transition-colors">
+            <div className="w-10 h-10 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center font-mono font-bold text-primary group-hover:bg-primary/20 transition-colors">
               T
             </div>
-            <span className="text-xl font-bold font-mono tracking-tight">
-              <span className="text-primary">TYPER</span>
-              <span className="text-foreground">VX</span>
+            <span className="text-xl font-bold font-mono tracking-tight text-foreground">
+              TYPERVX
             </span>
           </Link>
 
@@ -50,12 +48,12 @@ export default function Header() {
           <ul className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
+                <Link
+                  href={`/${item.toLowerCase()}`}
                   className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors duration-200"
                 >
                   [{item}]
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -98,13 +96,13 @@ export default function Header() {
             <ul className="space-y-3">
               {navItems.map((item) => (
                 <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
+                  <Link
+                    href={`/${item.toLowerCase()}`}
                     className="block text-sm font-mono text-muted-foreground hover:text-primary transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     $ cd /{item.toLowerCase()}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
