@@ -1,0 +1,2 @@
+:HL["/typervex-site/_next/static/chunks/f037e78b05d90c94.css","style"]
+0:{"buildId":"O4mi0X_OPjqBBc-vzm5Dn","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"/_not-found","paramType":null,"paramKey":"/_not-found","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
