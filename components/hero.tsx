@@ -43,7 +43,7 @@ export default function Hero() {
             DOWNLOAD
           </Link>
           <Link
-            href="#features"
+            href="/features"
             className="flex items-center gap-2 border border-border hover:border-primary/50 px-6 py-3 rounded-md font-mono font-semibold text-muted-foreground hover:text-foreground transition-all"
           >
             FEATURES
