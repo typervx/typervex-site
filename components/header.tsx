@@ -39,7 +39,7 @@ export default function Header() {
             <div className="w-10 h-10 rounded-md bg-primary/10 border border-primary/20 flex items-center justify-center font-mono font-bold text-primary group-hover:bg-primary/20 transition-colors">
               T
             </div>
-            <span className="text-xl font-bold font-mono tracking-tight text-foreground">
+            <span className="text-lg font-pixel tracking-tighter text-foreground group-hover:text-primary transition-colors">
               TYPERVX
             </span>
           </Link>

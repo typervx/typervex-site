@@ -1,10 +1,15 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Press_Start_2P } from 'next/font/google'
 import React from 'react'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const pixelFont = Press_Start_2P({
+  weight: '400',
+  subsets: ["latin"],
+  variable: '--font-pixel'
+});
 
 export const metadata: Metadata = {
   title: 'TyperVX - Professional Photoshop Extension',
@@ -47,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`font-sans antialiased bg-background`}>
+      <body className={`font-sans antialiased bg-background ${pixelFont.variable}`}>
         {/* Subtle grid background */}
         <div className="fixed inset-0 bg-[linear-gradient(rgba(34,197,94,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,197,94,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
 

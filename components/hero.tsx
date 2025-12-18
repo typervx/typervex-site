@@ -6,17 +6,12 @@ import { Download, ArrowRight, Github } from "lucide-react"
 export default function Hero() {
   return (
     <section className="relative pt-12 pb-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto text-center">
-        {/* ASCII Art Title - Terminal Style */}
-        <div className="mb-8 overflow-x-auto">
-          <pre className="font-mono text-[8px] sm:text-xs md:text-sm text-primary leading-tight inline-block text-left">
-            {`████████╗██╗   ██╗██████╗ ███████╗██████╗ ██╗   ██╗██╗  ██╗
-╚══██╔══╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗██║   ██║╚██╗██╔╝
-   ██║    ╚████╔╝ ██████╔╝█████╗  ██████╔╝██║   ██║ ╚███╔╝ 
-   ██║     ╚██╔╝  ██╔═══╝ ██╔══╝  ██╔══██╗╚██╗ ██╔╝ ██╔██╗ 
-   ██║      ██║   ██║     ███████╗██║  ██║ ╚████╔╝ ██╔╝ ██╗
-   ╚═╝      ╚═╝   ╚═╝     ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝`}
-          </pre>
+      <div className="max-w-7xl mx-auto text-center">
+        {/* Pixel Font Title */}
+        <div className="mb-12 py-8">
+          <h1 className="font-pixel text-4xl sm:text-6xl md:text-8xl text-primary tracking-tighter drop-shadow-[0_0_20px_rgba(34,197,94,0.4)] animate-pulse">
+            TYPERVX
+          </h1>
         </div>
 
         {/* Subtitle */}
