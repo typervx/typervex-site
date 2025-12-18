@@ -1,23 +1,26 @@
 "use client"
 
+const IS_PROD = process.env.NODE_ENV === "production"
+const PATH_PREFIX = IS_PROD ? "/typervex-site" : ""
+
 const screenshots = [
   {
-    src: "/sc/vid/uishowcase.mp4",
+    src: `${PATH_PREFIX}/sc/vid/uishowcase.mp4`,
     alt: "UI Showcase",
     label: "Main Interface",
   },
   {
-    src: "/sc/visual/UIshowcase3.PNG",
+    src: `${PATH_PREFIX}/sc/visual/UIshowcase3.PNG`,
     alt: "Style Editing",
     label: "Style Editor",
   },
   {
-    src: "/sc/visual/UIshowcase5.PNG",
+    src: `${PATH_PREFIX}/sc/visual/UIshowcase5.PNG`,
     alt: "Settings Interface",
     label: "Settings",
   },
   {
-    src: "/sc/visual/Newinstaller.PNG",
+    src: `${PATH_PREFIX}/sc/visual/Newinstaller.PNG`,
     alt: "New Installer",
     label: "Multi-Language Installer",
   },
